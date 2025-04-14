@@ -31,7 +31,7 @@ const DarkModeButton = () => {
     return (
         <div
             onClick={toggleTheme}
-            className="flex  whitespace-nowrap px-2 py-1 rounded border border-gray-500"
+            className="flex whitespace-nowrap px-2 py-1 rounded border border-gray-500"
         >
             {isDark ? '🌞 Light' : '🌙 Dark'}
         </div>

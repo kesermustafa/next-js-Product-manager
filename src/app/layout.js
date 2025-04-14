@@ -1,14 +1,10 @@
 import {Exo} from "next/font/google";
 import "./globals.css"
 
-
-
-
 const geistExo = Exo({
   variable: "--font-exo",
   subsets: ["latin"],
 });
-
 
 export const metadata = {
   title: "Create Next App",

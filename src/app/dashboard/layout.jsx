@@ -3,7 +3,7 @@ import DashboardHeader from "@/app/components/dashboard/header";
 
 const DashboardLayout = ({children}) => {
     return (
-        <div className='min-h-screen'>
+        <div className=''>
             <DashboardHeader />
             {children}
         </div>

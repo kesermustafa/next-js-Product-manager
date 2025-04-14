@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {AiOutlineClose, AiOutlineMenuFold} from "react-icons/ai";
 import menuItems from "@/app/components/header/menu.json";
 import Link from "next/link";
+import DarkModeButton from "@/app/components/header/darkModeButton";
 
 const ToggleMenu = () => {
 
@@ -50,6 +51,8 @@ const ToggleMenu = () => {
 
 
                 </div>
+
+                <DarkModeButton/>
             </div>
         </div>
     );
