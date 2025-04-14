@@ -1,0 +1,27 @@
+@import "tailwindcss";
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #171717;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Exo, Georgia, "Times New Roman", Times, serif;
+}
+
+.dark {
+  --background: #171717;
+  --foreground: #ededed;
+}
