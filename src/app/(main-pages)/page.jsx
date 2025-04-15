@@ -1,5 +1,6 @@
-import Link from "next/link";
-import Image from 'next/image'
+import ImageResponse from "@/app/components/ImageResponse";
+
+import Slider2 from "@/app/components/Slider2";
 
 export default function Home() {
 
@@ -8,11 +9,14 @@ export default function Home() {
             <div className='!h-[65px]'></div>
 
             <main className="flex w-full flex-col">
-                <h1>Hello Next.Js</h1>
-                <Link href={'/dashboard/products'}>Go to Dashboard</Link>
 
-
+                <Slider2/>
+                <ImageResponse/>
             </main>
+
+
+
+
 
         </div>
     );
