@@ -6,12 +6,13 @@ import MenuBar from "@/app/components/header/MenuBar";
 import Image from "next/image";
 
 const Navbar = () => {
-
     return (
         <>
+
+
             <div
-                className='fixed top-0 right-0 left-0 flex justify-between border-b border-b-gray-200 p-2 items-center z-20'>
-                <Link href={"/"} className="font-semibold whitespace-nowrap text-amber-600 text-xl">
+                className='fixed top-0 right-0 left-0 flex bg-transparent bg-gradient-to-b from-[var(--background)] to-transparent justify-between p-2 items-center z-20'>
+                <Link href={"/"} className="  font-semibold whitespace-nowrap text-amber-600 text-xl">
                     <Image
                         src="/images/logo.png"
                         priority={true}

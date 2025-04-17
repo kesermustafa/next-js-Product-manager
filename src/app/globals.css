@@ -18,10 +18,11 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: Exo, Georgia, "Times New Roman", Times, serif;
+  font-family: Exo, Roboto, Times, 'Times New Roman', serif;
 }
 
 .dark {
   --background: #171717;
   --foreground: #ededed;
 }
+

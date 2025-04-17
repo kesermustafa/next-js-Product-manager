@@ -39,22 +39,21 @@ const Slider = () => {
 
     return (
         <div className="relative w-full" data-carousel="slide">
-            <div className="relative h-52 sm:h-75 md:h-96 overflow-hidden lg:h-[600px]">
+            <div className="relative h-72 sm:h-96 md:h-[450px] overflow-hidden lg:h-[600px]">
                 {imageData.map((image, index) => (
                     <div
                         key={image.id}
                         className={`absolute top-0 left-0 w-full h-full transition-transform duration-900 ease-in-out ${
                             index === activeIndex
-                                ? "translate-x-0 z-20 opacity-100"
+                                ? "translate-x-0 z-10 opacity-100"
                                 : "translate-x-full z-10 opacity-0"
                         }`}
                     >
                         <Image
                             src={image.url}
                             alt={`Slide ${index + 1}`}
-                            width={1200}
-                            height={600}
                             priority={true}
+                            fill
                             className="block w-full h-full object-center object-fill"
                         />
                     </div>
@@ -104,7 +103,7 @@ const Slider = () => {
             <button
                 onClick={handleNext}
                 type="button"
-                className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group"
+                className="absolute top-0 end-0 z-10 flex items-center justify-center h-full px-4 cursor-pointer group"
             >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
           <svg

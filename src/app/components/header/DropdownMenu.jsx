@@ -14,7 +14,7 @@ export default function DropdownMenu() {
     };
 
     return (
-        <div className="relative inline-block text-left">
+        <div className="relative  inline-block text-left">
 
             <div
                 className="flex justify-center px-4 py-1 rounded-md cursor-pointer hover:text-amber-500"
@@ -27,7 +27,7 @@ export default function DropdownMenu() {
             {isOpen && (
                 <>
                     <div
-                        className="fixed inset-0 z-10"
+                        className="fixed inset-0 z-50"
                         onClick={closeDropdown}
                     />
 
