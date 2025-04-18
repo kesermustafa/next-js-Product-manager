@@ -1,6 +1,7 @@
 import React from 'react';
 import { appConfig } from "@/app/utils/config";
 import ProductList from "@/app/components/dashboard/products/ProductList";
+import ProductHeader from "@/app/components/dashboard/products/ProductHeader";
 
 
 const DashboardProductsPage = async () => {
@@ -37,7 +38,10 @@ const DashboardProductsPage = async () => {
 
     return (
         <div className="p-6">
-            <h1 className="text-2xl font-bold mb-4">Ürünler</h1>
+
+            <ProductHeader/>
+
+
             <ProductList products={products} />
         </div>
     );

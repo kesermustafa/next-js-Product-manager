@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from "next/link";
+import ProductDeleteButton from "@/app/components/dashboard/products/product-delete-btn";
 
 const ProductList = ({ products = [] }) => {
     if (!products?.length) {
@@ -10,6 +12,8 @@ const ProductList = ({ products = [] }) => {
     const tableCellClass = "py-2 px-4 sm:border-b block sm:table-cell";
     const labelClass = "inline-block w-24 font-bold sm:hidden";
     const headerClass = "hidden sm:table-header-group bg-gray-100 text-left text-gray-600";
+
+    console.log(products)
 
     return (
         <div className="w-full overflow-x-auto">
@@ -52,12 +56,13 @@ const ProductList = ({ products = [] }) => {
                         </td>
                         <td className={`${tableCellClass}`}>
                             <div className="flex gap-2 sm:justify-center">
-                                <button className="flex-1 sm:flex-none px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-                                    Edit
-                                </button>
-                                <button className="flex-1 sm:flex-none px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
-                                    Delete
-                                </button>
+                                <Link href={`/dashboard/products/${product.id}`}
+                                      className="flex-1 text-center sm:flex-none px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                                      Edit
+                                </Link>
+
+                                <ProductDeleteButton id={product.id} />
+
                             </div>
                         </td>
                     </tr>
