@@ -27,9 +27,9 @@ const ProductDetailPage = async ({ params }) => {
         allProductsRes.json(),
     ]);
 
-    if (!productRes.ok || !product || Object.keys(product).length === 0) {
+  /*  if (!productRes.ok || !product || Object.keys(product).length === 0) {
         notFound();
-    }
+    }*/
 
     return (
         <div className="flex flex-col min-h-screen">

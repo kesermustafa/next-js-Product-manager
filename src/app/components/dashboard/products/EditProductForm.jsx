@@ -1,30 +1,29 @@
 "use client";
 //import { updateProductAction } from "@/actions/product-actions";
 
-import { useFormState } from "react-dom";
 import SubmitButton from "@/app/components/common/SubmitButton";
 import CancelButton from "@/app/components/common/CancelButton";
+import {updateProductAction} from "@/app/actions/product-actions";
+import {useActionState} from "react";
 
 
 const EditProductForm = ({ product }) => {
 
     const initialState = { message: null, errors: {} };
 
-   /* const [state, dispatch] = useFormState(updateProductAction, initialState);
+    const [state, dispatch] = useActionState(updateProductAction, initialState);
 
-    const { title, description, price, category, image } = state.errors;*/
+    const { title, description, price, category, image } = state.errors;
 
     return (
         <div className={"max-w-[600px] w-full h-full mx-auto"}>
-{/*            {state.errors.common && (
+            {state.errors.common && (
                 <div className="bg-red-100 text-red-700 p-3 mb-4 rounded-md">
                     {state.errors.common}
                 </div>
-            )}*/}
+            )}
 
-
-
-            <form  className="space-y-4">
+            <form action={dispatch} className="space-y-4">
                 <input type="hidden" name="id" defaultValue={product.id} />
 
                 <div>
@@ -34,10 +33,10 @@ const EditProductForm = ({ product }) => {
                         type="text"
                         defaultValue={product.title}
                         className={`w-full border rounded-md px-3 py-2 ${
-                            product.title ? "border-red-500" : "border-gray-300"
+                            title ? "border-red-500" : "border-gray-300"
                         }`}
                     />
-                    {product.title && <p className="text-red-500 text-sm mt-1">{product.title}</p>}
+                    {title && <p className="text-red-500 text-sm mt-1">{title}</p>}
                 </div>
 
                 <div>
@@ -47,11 +46,11 @@ const EditProductForm = ({ product }) => {
                         rows={3}
                         defaultValue={product.description}
                         className={`w-full border rounded-md px-3 py-2 ${
-                            product.description ? "border-red-500" : "border-gray-300"
+                            description ? "border-red-500" : "border-gray-300"
                         }`}
                     />
-                    {product.description && (
-                        <p className="text-red-500 text-sm mt-1">{product.description}</p>
+                    {description && (
+                        <p className="text-red-500 text-sm mt-1">{description}</p>
                     )}
                 </div>
 
@@ -60,12 +59,13 @@ const EditProductForm = ({ product }) => {
                     <input
                         name="price"
                         type="number"
+                        step="0.01"
                         defaultValue={product.price}
                         className={`w-full border rounded-md px-3 py-2 ${
-                            product.price ? "border-red-500" : "border-gray-300"
+                            price ? "border-red-500" : "border-gray-300"
                         }`}
                     />
-                    {product.price && <p className="text-red-500 text-sm mt-1">{product.price}</p>}
+                    {price && <p className="text-red-500 text-sm mt-1">{price}</p>}
                 </div>
 
                 <div>
@@ -74,18 +74,18 @@ const EditProductForm = ({ product }) => {
                         name="category"
                         defaultValue={product.category}
                         className={`w-full border rounded-md px-3 py-2 ${
-                            product.category ? "border-red-500" : "border-gray-300"
+                            category ? "border-red-500" : "border-gray-300"
                         }`}
                     >
-                        <option value="">Select</option>
+                        <option value="" disabled={true}>Select</option>
                         <option value="Home">Home</option>
                         <option value="Computers">Computers</option>
                         <option value="Clothing">Clothing</option>
                         <option value="Kids">Kids</option>
                         <option value="Grocery">Grocery</option>
                     </select>
-                    {product.category && (
-                        <p className="text-red-500 text-sm mt-1">{product.category}</p>
+                    {category && (
+                        <p className="text-red-500 text-sm mt-1">{category}</p>
                     )}
                 </div>
 
@@ -96,10 +96,10 @@ const EditProductForm = ({ product }) => {
                         type="text"
                         defaultValue={product.image}
                         className={`w-full border rounded-md px-3 py-2 ${
-                            product.image ? "border-red-500" : "border-gray-300"
+                            image ? "border-red-500" : "border-gray-300"
                         }`}
                     />
-                    {product.image && <p className="text-red-500 text-sm mt-1">{product.image}</p>}
+                    {image && <p className="text-red-500 text-sm mt-1">{image}</p>}
                 </div>
 
                 <div className="flex items-center gap-4">

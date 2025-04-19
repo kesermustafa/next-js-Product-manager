@@ -14,8 +14,6 @@ const ProductsPage = async () => {
     const res = await fetch(`${appConfig.apiURL}/products`);
     const products = await res.json();
 
-    console.log(products)
-
     return (
         <div className='w-full'>
             <Spacer height={65}/>

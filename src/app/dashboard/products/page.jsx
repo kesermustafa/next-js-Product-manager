@@ -1,7 +1,8 @@
 import React from 'react';
-import { appConfig } from "@/app/utils/config";
+
 import ProductList from "@/app/components/dashboard/products/ProductList";
 import ProductHeader from "@/app/components/dashboard/products/ProductHeader";
+import {appConfig} from "@/app/utils/config";
 
 
 const DashboardProductsPage = async () => {
@@ -10,10 +11,7 @@ const DashboardProductsPage = async () => {
     try {
         const res = await fetch(`${appConfig.apiURL}/products`, { cache: 'no-store' });
 
-        if (!res.ok) {
-            // API 500, 404 vs. dönerse buraya düşer
-            throw new Error(`API Error: ${res.status}`);
-        }
+
 
         products = await res.json();
 

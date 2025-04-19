@@ -1,8 +1,18 @@
+"use client"
 import React from 'react';
 import SubmitButton from "@/app/components/common/SubmitButton";
 import CancelButton from "@/app/components/common/CancelButton";
+import {createProductAction, updateProductAction} from "@/app/actions/product-actions";
+import {useFormState} from "react-dom";
+
 
 const ProductForm = ({product, isNewProduct}) => {
+
+    const initialState = {message:null, errors:{}};
+
+    const [state, dispatch] = useFormState(createProductAction, initialState);
+
+
     // Eğer yeni bir ürün oluşturuluyorsa boş bir product nesnesi kullan
     const productData = product || {
         id: '',
@@ -15,9 +25,11 @@ const ProductForm = ({product, isNewProduct}) => {
 
     const submitTitle = isNewProduct ? "Create Product" : "Update";
 
+    const formAction = isNewProduct ? createProductAction : updateProductAction;
+
     return (
         <div className={"max-w-[600px] w-full h-full mx-auto"}>
-            <form className="space-y-4">
+            <form action={formAction} className="space-y-4">
                 <input type="hidden" name="id" defaultValue={productData.id}/>
 
                 <div>

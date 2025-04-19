@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import {appConfig} from "@/app/utils/config";
+import {deleteProductAction} from "@/app/actions/product-actions";
 
 const ProductDeleteButton =  ({id}) => {
 
@@ -12,13 +13,18 @@ const ProductDeleteButton =  ({id}) => {
 
 
         try {
-            const response = await fetch(`${appConfig.apiURL}/products/${id}`, {
+
+            const response = await deleteProductAction(id);
+            if(response.errors.common){
+                alert(response.errors.common)
+            }
+
+       /* const response = await fetch(`${appConfig.apiURL}/products/${id}`, {
                 method: 'DELETE'
-            });
+            });*/
 
             if (response.ok) {
                 alert("Product deleted successfully!");
-                // burada isteğe göre sayfayı yenileyebilir veya state güncelleyebilirsin
             } else {
                 alert("Failed to delete the product.");
             }
